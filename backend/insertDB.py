@@ -10,8 +10,8 @@ import pyodbc
 try:
     server = 'forexbd.database.windows.net'
     database = 'Forex'
-    username = 'gabrielmarchal206'
-    password = 'MS1!murkdeep'
+    username = 'epoxyfish'
+    password = 'Python3Appsql@11'
     driver= '{ODBC Driver 17 for SQL Server}'
     cnxn = pyodbc.connect(DRIVER=driver,SERVER=server,PORT=1433,DATABASE=database,UID=username,PWD=password)
     cursor = cnxn.cursor()

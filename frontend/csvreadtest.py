@@ -88,7 +88,11 @@ def chose_currency():
     print("Enter the number corresponding to a currency pair to run from the following list: \n")
     print("1.AUDCAD 2.AUDJPY 3.AUDNZD 4.AUDUSD 5.AUDCHF \n6.CADJPY 7.CADCHF 8.CHFJPY 9.EURAUD 10.EURCAD \n11.EURGBP 12.EURNZD 13.EURUSD 14.EURCHF 15.EURJPY \n16.GBPAUD 17.GBPCAD 18.GBPJPY 19.GBPNZD 20.GBPUSD \n21.GBPCHF 22.NZDCAD 23.NZDJPY 24.NZDUSD 25.USDCAD \n26.USDCHF 27.USDJPY")
     inputvar = int(input("Pair: "))
-    read_csv(inputvar)
+    if 1<=inputvar <= 27:
+        read_csv(inputvar)
+    else:
+        print("Invalid input. Must be between 1 and 27")
+        chose_currency()
 
 
 def read_csv(currency):

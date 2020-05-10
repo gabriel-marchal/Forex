@@ -31,9 +31,14 @@ currencies = [
     "USDCHF",
     "USDJPY"  
 ]
+def pairswitcher(i):
+    i=i-1
+    print("Pair switcher = "+ str(i))
+    print(currencies[i])
+    return(currencies[i])
 
 
-def runplot(xaxe,yaxe):
+def runplot(xaxe,yaxe, currency):
     # Create figure
     fig = go.Figure()
 
@@ -43,7 +48,7 @@ def runplot(xaxe,yaxe):
 
     # Set title
     fig.update_layout(
-        title_text="Test"
+        title_text=currency
     )
 
     # Add range slider
@@ -76,22 +81,29 @@ def runplot(xaxe,yaxe):
             type="date"
         )
     )
-
     fig.show()
 
 
+def chose_currency():
+    print("Enter the number corresponding to a currency pair to run from the following list: \n")
+    print("1.AUDCAD 2.AUDJPY 3.AUDNZD 4.AUDUSD 5.AUDCHF \n6.CADJPY 7.CADCHF 8.CHFJPY 9.EURAUD 10.EURCAD \n11.EURGBP 12.EURNZD 13.EURUSD 14.EURCHF 15.EURJPY \n16.GBPAUD 17.GBPCAD 18.GBPJPY 19.GBPNZD 20.GBPUSD \n21.GBPCHF 22.NZDCAD 23.NZDJPY 24.NZDUSD 25.USDCAD \n26.USDCHF 27.USDJPY")
+    inputvar = int(input("Pair: "))
+    read_csv(inputvar)
 
-xaxis = []
-yaxis = []
-with open('CSVCloseVal-2020.05.05-2013.12.02.csv', 'r') as file:
-    reader = csv.reader(file)
-    i =0
-    for row in reader:
-        yaxis.insert(i,row[0])
-        xaxis.insert(i,row[1])
-        i+=1
-    yaxis.remove("Date")
-    xaxis.remove("AUDCAD")
-    print(yaxis)
-    print(xaxis)
-    runplot(xaxis, yaxis)
+
+def read_csv(currency):
+    xaxis = []
+    yaxis = []
+    with open('CSVCloseVal-2020.05.05-2013.12.02.csv', 'r') as file:
+        reader = csv.reader(file)
+        i =0
+        for row in reader:
+            yaxis.insert(i,row[0])
+            xaxis.insert(i,row[currency])
+            i+=1
+        
+        yaxis.remove("Date")
+        xaxis.remove(xaxis[0])
+        runplot(xaxis, yaxis, currencies[currency-1])
+
+chose_currency()

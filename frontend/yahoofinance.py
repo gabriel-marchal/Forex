@@ -5,7 +5,11 @@
 # Dependancies: Individual files for each currencies will need to be downloaded and alocated in directory.
 # DONE : Successfully implement file pick up based on user input choice
 # TODO : Daily update CSVs and inject files OR run webscan to pickup the new files. (JS? Selenium?)
+# TODO : Run script on timer and pick up new downloads on periodic time (Daily, morning)
 # USD Yahoo files come without USD prefix. Webscrapper will need to change filename.
+
+
+#new update
 
 
 
@@ -115,9 +119,10 @@ def read_csv(currency):
         i =0
         for row in reader:
             yaxis.insert(i,row[0])
-            xaxis.insert(i,row[4])
+            xaxis.insert(i,row[4]) # Column for x axis
             i+=1
-        
+        print(xaxis)
+        print(yaxis)
         yaxis.remove("Date")
         xaxis.remove(xaxis[0])
         runplot(xaxis, yaxis, currencies[currency-1])

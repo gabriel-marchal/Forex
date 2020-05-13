@@ -4,12 +4,12 @@
 # There may be a discrepancy and further analysis of the data should be done.
 # Dependancies: Individual files for each currencies will need to be downloaded and alocated in directory.
 # DONE : Successfully implement file pick up based on user input choice
+# TODO : Create str/int selector for currency picking
 # TODO : Daily update CSVs and inject files OR run webscan to pickup the new files. (JS? Selenium?)
 # TODO : Run script on timer and pick up new downloads on periodic time (Daily, morning)
-# USD Yahoo files come without USD prefix. Webscrapper will need to change filename.
+# USD Yahoo files come without USD prefix. Webscrapper will need to modify filename.
 
 
-#new update
 
 
 

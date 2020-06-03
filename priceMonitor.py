@@ -1,6 +1,7 @@
-#!/usr/bin/env python2.7
+
 import keyboard
 import winsound
+#from pywin32 import GetWindowText, GetForegroundWindow
 from win32gui import GetWindowText, GetForegroundWindow
 import logging
 import sys
